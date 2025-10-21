@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+
+<head lang="zh">
+  <meta charset="UTF-8" />
+  <title>Sangfor A Desk Extension Popup</title>
+</head>
+
+<body style="width: 300px; padding: 0 10px 10px 10px">
+  <h2 style="margin-bottom: 20px">深信服桌面云快捷登录</h2>
+  <section id="loginSection" style="display: flex; flex-direction: column; gap: 10px;margin: 20px 0;">
+    <h4 style="margin-bottom: 10px">快捷使用</h4>
+    <button id="loginHandler" style="line-height: 30px;">使用本地密码登录</button>
+    <button id="resetData">重置登录信息</button>
+  </section>
+  <div id="loginForm" style="display: flex; flex-direction: column; gap: 10px">
+    <span style="color: #17C1C5;">请输入用户名和密码，后续登录可直接使用“快捷登录”。</span>
+    <label for="username">用户名：</label>
+    <input type="text" id="username" name="username" placeholder="请输入用户名" />
+    <label for="password">密码：</label>
+    <input type="password" id="password" name="password" placeholder="请输入密码" />
+    <button id="initLoginHandler" style="line-height: 30px;">记住密码并登录</button>
+    <li style="margin-left: 1em;color: #999;">密码仅存储在本地，不会被发送到服务器。</li>
+    <!-- <button id="mainHandler">手动触发</button> -->
+    <!-- <button id="resetInit">手动重置</button> -->
+  </div>
+
+  <script type="text/javascript" src="./popup.js">
+
+  </script>
+</body>
+
+</html>

@@ -1,0 +1,39 @@
+{
+  "manifest_version": 3,
+  "name": "sangfor-a-deak-browser-extension",
+  "version": "0.1.0",
+  "description": "由于登录页面不支持记住密码故本插件来解决快捷登录",
+  "action": {
+    "default_icon": "logo/icon38_gray.png",
+    "default_title": "sangfor-a-deak-browser-extension",
+    "default_popup": "src/popup/popup.html"
+  },
+  "icons": {
+    "16": "logo/icon38.png",
+    "48": "logo/icon38.png",
+    "128": "logo/icon38.png"
+  },
+  "content_scripts": [
+    {
+      "js": [
+        "src/content/content-script.ts"
+      ],
+      "matches": [
+        "*://*/por/login_psw.csp*"
+      ]
+    }
+  ],
+  "background": {
+    "service_worker": "src/background/background.js"
+  },
+  "permissions": [
+    "storage",
+    "activeTab",
+    "tabs",
+    "alarms",
+    "webRequest"
+  ],
+  "host_permissions": [
+    "<all_urls>"
+  ]
+}

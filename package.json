@@ -1,0 +1,19 @@
+{
+  "name": "sangfor-a-desk-browser-extension",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "scripts": {
+    "tojs": "tsc src/popup/popup.ts --outDir dist/src/popup",
+    "watch": "vite --watch build",
+    "build": "rimraf dist && tsc && vite build && pnpm run tojs",
+    "preview": "vite preview"
+  },
+  "devDependencies": {
+    "@crxjs/vite-plugin": "^2.2.0",
+    "chrome-types": "^0.1.383",
+    "rimraf": "^6.0.1",
+    "typescript": "~5.9.3",
+    "vite": "^7.1.7"
+  }
+}
