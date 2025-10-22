@@ -7,11 +7,16 @@
 </head>
 
 <body style="width: 300px; padding: 0 10px 10px 10px">
-  <h2 style="margin-bottom: 20px">深信服桌面云快捷登录</h2>
-  <section id="loginSection" style="display: flex; flex-direction: column; gap: 10px;margin: 20px 0;">
-    <h4 style="margin-bottom: 10px">快捷使用</h4>
+  <div style="display: flex; align-items: center; gap: 5px;">
+    <h2 style="margin-bottom: 12px">深信服桌面云快捷登录</h2>
+    <span style="color: #666;">版本 0.2.0</span>
+  </div>
+  <span
+    style="color: #333; display: block; margin-bottom: 15px; border-left: 1px solid #ccc; padding-left: 7px;">可以在登录页面点击“插件记住密码”后点击原来的登录直接使用。</span>
+  <section id="loginSection" style="display: flex; flex-direction: column; gap: 10px;">
+    <h4 style="margin: 8px 0 2px;">快捷使用</h4>
     <button id="loginHandler" style="line-height: 30px;">使用本地密码登录</button>
-    <button id="resetData">重置登录信息</button>
+    <button id="resetData" style="margin-bottom: 20px;">重置登录信息</button>
   </section>
   <div id="loginForm" style="display: flex; flex-direction: column; gap: 10px">
     <span style="color: #17C1C5;">请输入用户名和密码，后续登录可直接使用“快捷登录”。</span>

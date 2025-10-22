@@ -14,19 +14,19 @@ const resetDataButton = document.getElementById('resetData')
 
 // // 保存数据到扩展存储
 // function saveToStorage(key: any, value: any) {
-//   if (typeof chrome !== 'undefined' && chrome.storage && chrome.storage.local) {
-//     chrome.storage.local.set({ [key]: value }, function () {
+//   if (typeof chrome !== 'undefined' && chrome.storage && chrome.storage.sync) {
+//     chrome.storage.sync.set({ [key]: value }, function () {
 //       console.log('数据已保存:', key, value);
 //     });
 //   } else {
-//     console.log('chrome.storage.local 不可用');
+//     console.log('chrome.storage.sync 不可用');
 //   }
 // }
 
 // 从扩展存储读取数据
 function getFromStorage(key: any, callback: (arg0: any) => void) {
-  if (typeof chrome !== 'undefined' && chrome.storage && chrome.storage.local) {
-    chrome.storage.local.get([key], function (result) {
+  if (typeof chrome !== 'undefined' && chrome.storage && chrome.storage.sync) {
+    chrome.storage.sync.get([key], function (result) {
       callback(result[key]);
     });
   } else {
@@ -36,14 +36,14 @@ function getFromStorage(key: any, callback: (arg0: any) => void) {
 
 // // 删除数据
 // function removeFromStorage(key: string) {
-//     chrome.storage.local.remove([key], function() {
+//     chrome.storage.sync.remove([key], function() {
 //         console.log('数据已删除:', key);
 //     });
 // }
 
 // // 清空所有数据
 // function clearStorage() {
-//     chrome.storage.local.clear(function() {
+//     chrome.storage.sync.clear(function() {
 //         console.log('所有数据已清空');
 //     });
 // }
@@ -112,12 +112,12 @@ if (loginFormButton) {
       return
     }
     // 保存用户名和密码到扩展存储
-    if (typeof chrome !== 'undefined' && chrome.storage && chrome.storage.local) {
-      chrome.storage.local.set({ username: username, password: password }, function () {
+    if (typeof chrome !== 'undefined' && chrome.storage && chrome.storage.sync) {
+      chrome.storage.sync.set({ username: username, password: password }, function () {
         console.log('数据已保存:', ['username', 'password'], [username, password]);
       });
     } else {
-      console.log('chrome.storage.local 不可用，无法保存登录信息');
+      console.log('chrome.storage.sync 不可用，无法保存登录信息');
     }
 
     // 关闭弹窗
@@ -143,7 +143,7 @@ if (resetDataButton) {
       return
     }
     // 清除存储数据
-    chrome.storage.local.remove(['username', 'password'], function () {
+    chrome.storage.sync.remove(['username', 'password'], function () {
       console.log('登录信息已重置');
       // 刷新当前页面
       chrome.tabs.query({ active: true, currentWindow: true }, (tabs) => {
